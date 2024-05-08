@@ -6,6 +6,10 @@ on:
   pull_request:
     branches: ["main"]
 
+permissions:
+  id-token: write
+  contents: read
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -30,3 +34,11 @@ jobs:
       #Docker-compose 수행
       - name: Build Docker Compose
         run: docker-compose
+
+      #AWS 로그인
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::641022061021:role/DjangoECR
+          role-session-name: sampleSessionName
+          aws-region: ap-northeast-2
