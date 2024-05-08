@@ -12,7 +12,7 @@ permissions:
 
 env:
   AWS_REGION: ap-northeast-2
-  ECR_REPOSITORY: DjangoECR
+  ECR_REPOSITORY: djangoapiserver
   ECS_SERVICE: djangoservice
   ECS_CLUSTER: itstudycluster
   ECS_TASK_DEFINITION: ./djangotask-revision1.json
